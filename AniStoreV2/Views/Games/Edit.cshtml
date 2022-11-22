@@ -1,0 +1,89 @@
+﻿@model AniStoreV2.Models.Game
+
+@{
+    ViewBag.Title = "Изменить: " + Model.Name;
+}
+
+<h2 class="title">Редактирование</h2>
+
+<link href="~/Content/EditStyles.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "main_input" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "main_input" } })
+            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "big_input" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "main_input" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "main_input" } }) 
+            @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "main_input" } })
+            @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GenreID, "Жанр", htmlAttributes: new { @class = "input_label col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("GenreID", null, htmlAttributes: new { @class = "main_input" })
+            @Html.ValidationMessageFor(model => model.GenreID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="buttons_area">
+            <input type="submit" value="Сохранить" class="save_button" />
+            <div>
+                <a href="/games/delete/@Model.Id" class="delete_button_a" style="margin-top:20px; display:block;">Удалить</a>
+                <a href="/games/index" class="main_button_a" style="margin-top:20px;">На главную</a>
+            </div>
+        </div>
+</div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

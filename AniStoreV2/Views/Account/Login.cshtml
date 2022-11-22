@@ -1,0 +1,39 @@
+﻿@model AniStoreV2.Models.LoginModel
+
+@{
+    ViewBag.Title = "Авторизация";
+}
+
+<link href="~/Content/LoginStyles1.css" rel="stylesheet" />
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="main_block">
+    <h2>Авторизация</h2>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "input_label_1" })
+        <div class="">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "main_input" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "input_label_2" })
+        <div class="">
+            @Html.PasswordFor(model => model.Password, new { @class = "main_input" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <input type="submit" value="Войти" class="main_button" />
+
+    <div class="login_button">
+        <a href="/account/register" class="main_button_a">Создать аккаунт</a>
+    </div>
+</div>
+    }
+
+

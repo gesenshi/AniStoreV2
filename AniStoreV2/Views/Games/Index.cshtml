@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AniStoreV2.Models.Game>
+
+@{
+    ViewBag.Title = "AniStore";
+}
+<link href="~/Content/MainIndexStyles5.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@*<p>
+    @Html.ActionLink("Добавить товар", "Create")
+</p>*@
+
+<header class="header">
+    <a href="#" class="logo"><h1>AniStore</h1></a>
+    <nav class="header__nav">
+        <ul class="header__list">
+            <li class="header__item"><a href="/Games/Index" class="header__link">Каталог</a></li>
+            <li class="header__item"><a href="/Games/Search/" class="header__link">Поиск</a></li>
+            <li class="header__item"><a href="#" class="header__link">О нас</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="games_sheet">
+    @foreach (var item in Model)
+    {
+        <a href="Details/@item.Id/">
+            <div class="game_card">
+
+
+                <div class="game_title">
+                    <span class="game_name">@Html.DisplayFor(modelItem => item.Name)</span>
+
+                    <span class="game_price">@Html.DisplayFor(modelItem => item.Price) <span>₽</span></span>
+
+
+                    @*@Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Детали", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })*@
+
+                </div>
+
+                <img src="~/Images/Games/@Html.DisplayFor(modelItem => item.Photo)" alt="@item.Name" style="width:200px; height:200px; " />
+
+            </div>
+        </a>
+        }
+    </div>
+
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>*@
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Genre.Name)
+        </td>*@
+    <td>
+
+        </td>
+
+
+    <footer>
+        <div class="Search">
+            <p class="ActionLink">
+                @Html.ActionLink("Поиск", "Search")
+            </p>
+        </div>
+    </footer>

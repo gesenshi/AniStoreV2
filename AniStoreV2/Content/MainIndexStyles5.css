@@ -1,0 +1,90 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,500;0,600;0,800;0,900;1,100&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #4045d6;
+    color:white;
+}
+
+a {
+    color: #242424;
+}
+
+    a:hover {
+        color: #1b1b1b;
+        text-decoration:none;
+    }
+
+.games_sheet{
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    grid-gap:40px;
+}
+
+.game_card {
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
+    width: 350px;
+    height: 350px;
+    cursor: pointer;
+    transition: transform ease-out 0.3s;
+    z-index: 5;
+}
+
+    .game_card:hover {
+        z-index: 10;
+        transform: scale(1.1);
+    }
+
+.game_title{
+    display:flex;
+    align-items:center;
+    color:#161616;
+}
+
+.game_price {
+    color:white;
+    font-weight: bold;
+    margin-left: 14px;
+    font-size: 15px;
+    width:76px;
+    text-align:center;
+    background-color: red;
+    padding: 6px;
+    border-radius: 14px;
+}
+
+    .game_price:hover {
+        background-color: #e90101;
+    }
+
+.game_name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+.header {
+    max-width: 1197px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px 110px 15px;
+}
+
+.header__list {
+    display: flex;
+    list-style-type: none;
+    gap: 40px;
+}
+
+.header__link {
+    color: white;
+    text-decoration: none;
+}
+
+.logo{
+    font-weight:bolder;
+}
